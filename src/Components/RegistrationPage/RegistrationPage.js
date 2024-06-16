@@ -2,11 +2,12 @@
 
 import React, { useState } from 'react';
 import './RegistrationPages.css';
+import axios from 'axios';
 
 const RegistrationPage = () => {
     const [formData, setFormData] = useState({
         fullname: '',
-        email: '',
+        username: '',
         password: '',
         confirmPassword: '',
     });
@@ -21,7 +22,21 @@ const RegistrationPage = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Handle form submission logic here
+        if (formData.password !== formData.confirmPassword) {
+            alert("Passwords don't match");
+            return;
+        }
+
+        try {
+            const response = axios.post('http://localhost:8080/api/users/register', {
+                fullname: formData.fullname,
+                username: formData.username,
+                password: formData.password,
+            });
+            console.log('User registered successfully:', response.data);
+        } catch (error) {
+            console.error('Error registering user:', error);
+        }
         console.log('Form data submitted:', formData);
     };
 
@@ -43,8 +58,8 @@ const RegistrationPage = () => {
                     <label>Email</label>
                     <input
                         type="email"
-                        name="email"
-                        value={formData.email}
+                        name="username"
+                        value={formData.username}
                         onChange={handleChange}
                         required
                     />

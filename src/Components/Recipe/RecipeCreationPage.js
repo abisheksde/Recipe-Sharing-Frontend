@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './RecipeCreationPage.css';
+import axios from 'axios';
 
 const RecipeCreationPage = () => {
     const [title, setTitle] = useState('');
@@ -13,8 +14,30 @@ const RecipeCreationPage = () => {
         setImage(e.target.files[0]);
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
+
+        const formData = new FormData();
+        formData.append('title', title);
+        formData.append('ingredients', ingredients);
+        formData.append('steps', steps);
+        formData.append('cookingTime', cookingTime);
+        formData.append('difficulty', difficulty);
+        if (image) {
+            formData.append('image', image);
+        }
+
+        try {
+            await axios.post('http://localhost:8080/api/recipes', formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
+            });
+            alert('Recipe created successfully');
+        } catch (error) {
+            console.error('Error creating recipe:', error);
+            alert('Failed to create recipe');
+        }
         // Handle form submission logic here
         console.log({ title, ingredients, steps, cookingTime, difficulty, image });
     };
