@@ -14,7 +14,7 @@ const RecipeCreationPage = () => {
         setImage(e.target.files[0]);
     };
 
-    const handleSubmit = async (e) => {
+    const handleSubmit =  (e) => {
         e.preventDefault();
 
         const formData = new FormData();
@@ -28,7 +28,7 @@ const RecipeCreationPage = () => {
         }
 
         try {
-            await axios.post('http://localhost:8080/api/recipes', formData, {
+             axios.post('http://localhost:8080/api/recipes', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },

@@ -1,6 +1,7 @@
 // src/components/RegistrationForm.js
 
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './RegistrationPages.css';
 import axios from 'axios';
 
@@ -19,6 +20,7 @@ const RegistrationPage = () => {
             [name]: value,
         });
     };
+    const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -32,7 +34,10 @@ const RegistrationPage = () => {
                 fullname: formData.fullname,
                 username: formData.username,
                 password: formData.password,
+                
             });
+            navigate('/');
+            console.log('Form data submitted:', formData.fullname);
             console.log('User registered successfully:', response.data);
         } catch (error) {
             console.error('Error registering user:', error);
