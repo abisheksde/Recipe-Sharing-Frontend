@@ -1,12 +1,12 @@
 // src/UserProfileUpdate.js
 import React, { useState } from 'react';
 import './UserProfileUpdate.css';
+import axios from 'axios';
 
 const UserProfileUpdate = () => {
   const [profile, setProfile] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
+    fullname: '',
+    username: '',
     password: '',
   });
 
@@ -16,7 +16,16 @@ const UserProfileUpdate = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission logic
+    
+  try {
+      const response = axios.post('http://localhost:8080/api/users/update', profile);
+      
+      console.log('Form data submitted:', profile.fullname);
+      console.log('User Updated successfully:', response.data);
+  } catch (error) {
+      console.error('Error Updating user:', error);
+  }
+  console.log('Form data submitted:', profile);
     console.log(profile);
   };
 
@@ -32,31 +41,21 @@ const UserProfileUpdate = () => {
             <label htmlFor="firstName">First Name</label>
             <input
               type="text"
-              id="firstName"
-              name="firstName"
-              value={profile.firstName}
+              id="fullname"
+              name="fullname"
+              value={profile.fullname}
               onChange={handleChange}
               required
             />
           </div>
-          <div className="form-group">
-            <label htmlFor="lastName">Last Name</label>
-            <input
-              type="text"
-              id="lastName"
-              name="lastName"
-              value={profile.lastName}
-              onChange={handleChange}
-              required
-            />
-          </div>
+          
           <div className="form-group">
             <label htmlFor="email">Email Address</label>
             <input
               type="email"
               id="email"
-              name="email"
-              value={profile.email}
+              name="username"
+              value={profile.username}
               onChange={handleChange}
               required
             />

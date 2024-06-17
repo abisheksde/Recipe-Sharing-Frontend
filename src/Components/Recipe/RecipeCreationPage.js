@@ -28,7 +28,7 @@ const RecipeCreationPage = () => {
         }
 
         try {
-             axios.post('http://localhost:8080/api/recipes', formData, {
+             axios.post('http://localhost:8080/api/recipes/save', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },

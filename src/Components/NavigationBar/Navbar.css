@@ -1,0 +1,23 @@
+.small-navbar {
+    padding: 0.5rem 1rem;
+}
+
+.small-navbar .navbar-brand {
+    font-size: 1rem;
+    padding: 0;
+    margin: 0;
+}
+
+.small-navbar .nav-link {
+    font-size: 0.85rem;
+    padding: 0 0.5rem;
+    margin: 0;
+}
+
+.small-navbar .navbar-nav {
+    flex-direction: row;
+}
+
+.small-navbar .navbar-collapse {
+    justify-content: flex-end;
+}
