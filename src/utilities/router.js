@@ -6,6 +6,7 @@ import UserAccountPage from "../Components/UserProfile/AccountManagement/js/User
 import RecipeCreationPage from "../Components/Recipe/RecipeCreationPage";
 import LoginPage from "../Components/LoginPage/LoginPage";
 import Home from "../Components/HomePage/Home";
+import RecipeUpdatePage from "../Components/Recipe/RecipeUpdatePage";
 
 const router = createBrowserRouter([
     { path: '', element:<LoginPage/> },
@@ -15,7 +16,8 @@ const router = createBrowserRouter([
     { path: 'profileupdate', element: <UserProfileUpdate/> },
     { path: 'account', element: <UserAccountPage/> },
     { path: 'recipecreation', element: <RecipeCreationPage/> },
-    { path: 'recipecreation', element: <RecipeCreationPage/> },
+    { path: 'recipeupdate', element: <RecipeUpdatePage/> },
+    
     
 ]);
 

@@ -27,7 +27,10 @@ const LoginForm = () => {
         try {
             const response = await axios.post('http://localhost:8080/api/users/login', formData);
             console.log('User logged in successfully:', response.data);
-            navigate('/home');
+            if(response.data.status == true){
+                navigate('/home');
+            }
+            
             // Handle successful login, e.g., store user data, redirect, etc.
         } catch (error) {
             console.error('Error logging in:', error);
