@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import './RegistrationPages.css';
 import axios from 'axios';
 
@@ -36,7 +37,7 @@ const RegistrationPage = () => {
                 password: formData.password,
                 
             });
-            navigate('/');
+            navigate('/login');
             console.log('Form data submitted:', formData.fullname);
             console.log('User registered successfully:', response.data);
         } catch (error) {
@@ -47,50 +48,53 @@ const RegistrationPage = () => {
 
     return (
         <div className="registration-container">
-            <form className="registration-form" onSubmit={handleSubmit}>
-                <h2>Register</h2>
-                <div className="form-group">
-                    <label>Full Name</label>
-                    <input
-                        type="text"
-                        name="fullname"
-                        value={formData.fullname}
-                        onChange={handleChange}
-                        required
-                    />
-                </div>
-                <div className="form-group">
-                    <label>Email</label>
-                    <input
-                        type="email"
-                        name="username"
-                        value={formData.username}
-                        onChange={handleChange}
-                        required
-                    />
-                </div>
-                <div className="form-group">
-                    <label>Password</label>
-                    <input
-                        type="password"
-                        name="password"
-                        value={formData.password}
-                        onChange={handleChange}
-                        required
-                    />
-                </div>
-                <div className="form-group">
-                    <label>Confirm Password</label>
-                    <input
-                        type="password"
-                        name="confirmPassword"
-                        value={formData.confirmPassword}
-                        onChange={handleChange}
-                        required
-                    />
-                </div>
-                <button type="submit">Register</button>
-            </form>
+            <div>
+                <form className="registration-form" onSubmit={handleSubmit}>
+                    <h2>Register</h2>
+                    <div className="form-group">
+                        <label>Full Name</label>
+                        <input
+                            type="text"
+                            name="fullname"
+                            value={formData.fullname}
+                            onChange={handleChange}
+                            required
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label>Email</label>
+                        <input
+                            type="email"
+                            name="username"
+                            value={formData.username}
+                            onChange={handleChange}
+                            required
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label>Password</label>
+                        <input
+                            type="password"
+                            name="password"
+                            value={formData.password}
+                            onChange={handleChange}
+                            required
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label>Confirm Password</label>
+                        <input
+                            type="password"
+                            name="confirmPassword"
+                            value={formData.confirmPassword}
+                            onChange={handleChange}
+                            required
+                        />
+                    </div>
+                    <button type="submit">Register</button>
+                </form>
+                <p style={{ textAlign: 'center' }}>Already have Account? <Link to={"/login"}>Login</Link></p>
+            </div>
         </div>
     );
 };

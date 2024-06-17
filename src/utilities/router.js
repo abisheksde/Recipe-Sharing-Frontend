@@ -7,11 +7,12 @@ import RecipeCreationPage from "../Components/Recipe/RecipeCreationPage";
 import LoginPage from "../Components/LoginPage/LoginPage";
 
 const router = createBrowserRouter([
-    { path: '', element: <App/> },
+    { path: '', element:<LoginPage/> },
     { path: 'login', element: <LoginPage/> },
     { path: 'registration', element: <RegistrationPage/> },
     { path: 'profileupdate', element: <UserProfileUpdate/> },
     { path: 'account', element: <UserAccountPage/> },
+    { path: 'recipecreation', element: <RecipeCreationPage/> },
     { path: 'recipecreation', element: <RecipeCreationPage/> },
     
 ]);
