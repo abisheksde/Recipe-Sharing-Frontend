@@ -4,6 +4,10 @@ import { fetchRecipes } from '../../service/RecipeService';
 const RecipeList = () => {
     const [recipes, setRecipes] = useState([]);
 
+    const [keyword, setKeyword] = useState('');
+  const [results, setResults] = useState([]);
+
+
     useEffect(() => {
         fetchRecipes()
             .then(response => {
