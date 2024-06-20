@@ -8,6 +8,11 @@ import LoginPage from "../Components/LoginPage/LoginPage";
 import Home from "../Components/HomePage/Home";
 import RecipeUpdatePage from "../Components/Recipe/RecipeUpdatePage";
 import UsersList from "../Components/UsersList";
+import AdminDashboard from "../Components/Admin/AdminDashboard";
+import RecipeListForAdmin from "../Components/Admin/RecipeListForAdmin";
+import RecipeList from "../Components/Recipe/RecipeList";
+import UserPosts from "../Components/UserProfile/AccountManagement/js/UserPosts";
+
 
 const router = createBrowserRouter([
     { path: '', element:<LoginPage/> },
@@ -19,6 +24,12 @@ const router = createBrowserRouter([
     { path: 'recipecreation', element: <RecipeCreationPage/> },
     { path: 'recipeupdate', element: <RecipeUpdatePage/> },
     { path: 'userlist', element: <UsersList/> },
+    
+    { path: 'admin/recipelist', element: <RecipeListForAdmin/>},
+    { path: 'admin', element: <AdminDashboard/> },
+
+    
+    
     
     
 ]);

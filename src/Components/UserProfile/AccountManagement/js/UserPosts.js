@@ -18,6 +18,7 @@ const UserPosts = ({ recipes }) => {
     try {
       const response =  axios.post(`http://localhost:8080/api/recipes/delete/${id}`); //{id}
         console.log('Product deleted successfully:', response.data);
+        console.log("isArray "+ recipes)
         navigate("/home");
     } catch (error) {
         console.error('Error deleting the product:', error);
@@ -32,7 +33,7 @@ const UserPosts = ({ recipes }) => {
 
           if(recipe.length != 0){
             console.log('Product Updated successfully:', response.data);
-            console.log('Product Updated successfully:', recipe);
+            
             navigate('/recipeupdate', { state: { recipe } })
           }
           
@@ -48,8 +49,9 @@ const UserPosts = ({ recipes }) => {
     <div className="user-posts">
       
       <div>
-      <h2>Posts ({recipes.length})</h2>
+      {/* <h2>Posts ({recipes.length})</h2> */}
       <ul>
+        <div>
         {recipes.map(recipes => (
           <li key={recipes.id}>
             <h2>{recipes.title}</h2>
@@ -64,6 +66,7 @@ const UserPosts = ({ recipes }) => {
       </div>
           </li>
         ))}
+        </div>
       </ul>
       </div>
       
