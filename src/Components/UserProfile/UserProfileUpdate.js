@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import './UserProfileUpdate.css';
 import axios from 'axios';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 const UserProfileUpdate = () => {
   const [profile, setProfile] = useState({
@@ -9,6 +10,8 @@ const UserProfileUpdate = () => {
     username: '',
     password: '',
   });
+
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setProfile({ ...profile, [e.target.name]: e.target.value });
@@ -22,6 +25,7 @@ const UserProfileUpdate = () => {
       
       console.log('Form data submitted:', profile.fullname);
       console.log('User Updated successfully:', response.data);
+      navigate("/");
   } catch (error) {
       console.error('Error Updating user:', error);
   }

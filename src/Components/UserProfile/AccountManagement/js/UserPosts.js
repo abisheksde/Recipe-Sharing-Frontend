@@ -1,22 +1,3 @@
-// import React from 'react';
-// import '../css/UserPosts.css';
-
-// const UserPosts = ({ posts }) => {
-//   return (
-//     <div className="user-posts">
-      
-//       <h2>Posts ({posts.length})</h2>
-//       {posts.map(post => (
-//         <div key={post.id} className="post">
-//           {post.content}
-//         </div>
-//       ))}
-//     </div>
-//   );
-// };
-
-// export default UserPosts;
-
 import '../css/UserPosts.css';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
@@ -37,6 +18,7 @@ const UserPosts = ({ recipes }) => {
     try {
       const response =  axios.post(`http://localhost:8080/api/recipes/delete/${id}`); //{id}
         console.log('Product deleted successfully:', response.data);
+        navigate("/home");
     } catch (error) {
         console.error('Error deleting the product:', error);
     }
@@ -74,10 +56,10 @@ const UserPosts = ({ recipes }) => {
             <p>{"Ingredients : " + recipes.ingredients}</p>
             <div>
         <div>
-         <button onClick={()=> handleDelete(5)}>Delete</button>
+         <button onClick={()=> handleDelete(recipes.id)}>Delete</button>
         </div>
         <div>
-         <button onClick={()=> handleEdit(6)}>Edit</button>
+         <button onClick={()=> handleEdit(recipes.id)}>Edit</button>
         </div>
       </div>
           </li>

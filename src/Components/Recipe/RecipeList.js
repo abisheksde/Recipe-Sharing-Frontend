@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { fetchRecipes } from '../../service/RecipeService';
+import LikeButton from '../LikeButton';
 
 const RecipeList = () => {
     const [recipes, setRecipes] = useState([]);
@@ -24,9 +25,16 @@ const RecipeList = () => {
             <ul>
                 {recipes.map(recipes => (
                     <li key={recipes.id}>
-                        <h2>{recipes.title}</h2>
-                        <p>{"Ingredients : " + recipes.ingredients}</p>
-                        <img src=''></img>
+                        <div>
+                            <div>
+                                <h2>{recipes.title}</h2>
+                                <p>{"Ingredients : " + recipes.ingredients}</p>
+                            <img src=''></img>
+                            </div>
+                            <div>
+                                {/* <LikeButton/> */}
+                            </div>
+                        </div>
                     </li>
                 ))}
             </ul>

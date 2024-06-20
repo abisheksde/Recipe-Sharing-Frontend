@@ -7,6 +7,7 @@ import RecipeCreationPage from "../Components/Recipe/RecipeCreationPage";
 import LoginPage from "../Components/LoginPage/LoginPage";
 import Home from "../Components/HomePage/Home";
 import RecipeUpdatePage from "../Components/Recipe/RecipeUpdatePage";
+import UsersList from "../Components/UsersList";
 
 const router = createBrowserRouter([
     { path: '', element:<LoginPage/> },
@@ -17,6 +18,7 @@ const router = createBrowserRouter([
     { path: 'account', element: <UserAccountPage/> },
     { path: 'recipecreation', element: <RecipeCreationPage/> },
     { path: 'recipeupdate', element: <RecipeUpdatePage/> },
+    { path: 'userlist', element: <UsersList/> },
     
     
 ]);

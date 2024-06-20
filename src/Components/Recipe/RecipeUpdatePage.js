@@ -34,7 +34,7 @@ const RecipeUpdatePage = () => {
     const location = useLocation();
     const { recipe } = location.state || {};
 
-    const recipeId = Number(recipe.id);
+    const recipeId = recipe.id;
 
     const handleImageChange = (e) => {
         setImage(e.target.files[0]);

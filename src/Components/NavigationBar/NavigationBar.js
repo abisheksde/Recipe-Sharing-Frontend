@@ -13,8 +13,8 @@ const NavigationBar = () => {
             </div>
             <ul className="nav navbar-nav">
             <li className="active"><a href="#">Home</a></li>
-            <li className="active"><a href="\account">Account</a></li>
-            <li className="active"><a href="#">Account</a></li>
+            <li className="active"><a href="\account">My Profile</a></li>
+            <li className="active"><a href="\userlist">Users</a></li>
             </ul>
         </div>
         </nav>
