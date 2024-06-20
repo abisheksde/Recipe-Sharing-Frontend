@@ -17,12 +17,51 @@
 
 // export default UserPosts;
 
-
-import React from 'react';
 import '../css/UserPosts.css';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { fetchRecipes } from '../../../../service/RecipeService';
+
 
 
 const UserPosts = ({ recipes }) => {
+
+  const [recipe, setRecipes] = useState([]);
+
+
+
+  const navigate = useNavigate();
+  // Send a DELETE request to the API endpoint
+  const handleDelete =  (id) => {
+    try {
+      const response =  axios.post(`http://localhost:8080/api/recipes/delete/${id}`); //{id}
+        console.log('Product deleted successfully:', response.data);
+    } catch (error) {
+        console.error('Error deleting the product:', error);
+    }
+  };
+
+  // Send a UPDATEs request to the API endpoint
+  const handleEdit =  (id) => {
+
+        const response =  axios.get(`http://localhost:8080/api/recipes/update/${id}`).then(response => {
+          setRecipes(response.data);
+
+          if(recipe.length != 0){
+            console.log('Product Updated successfully:', response.data);
+            console.log('Product Updated successfully:', recipe);
+            navigate('/recipeupdate', { state: { recipe } })
+          }
+          
+      })
+      .catch(error => {
+          console.error('Error fetching product data:', error);
+      });
+  };
+
+
+
   return (
     <div className="user-posts">
       
@@ -35,10 +74,10 @@ const UserPosts = ({ recipes }) => {
             <p>{"Ingredients : " + recipes.ingredients}</p>
             <div>
         <div>
-         <button>Delete</button>
+         <button onClick={()=> handleDelete(5)}>Delete</button>
         </div>
         <div>
-         <button>Edit</button>
+         <button onClick={()=> handleEdit(6)}>Edit</button>
         </div>
       </div>
           </li>

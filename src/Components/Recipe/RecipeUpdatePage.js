@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 const RecipeUpdatePage = () => {
     const { id } = useParams();
@@ -30,6 +31,11 @@ const RecipeUpdatePage = () => {
     //     fetchRecipe();
     // }, [id]);
 
+    const location = useLocation();
+    const { recipe } = location.state || {};
+
+    const recipeId = Number(recipe.id);
+
     const handleImageChange = (e) => {
         setImage(e.target.files[0]);
     };
@@ -48,7 +54,8 @@ const RecipeUpdatePage = () => {
         }
 
         try {
-            await axios.post(`http://localhost:8080/api/recipes/update`, formData, { // {id}
+            console.log(recipe);
+            await axios.post(`http://localhost:8080/api/recipes/update/${recipeId}`, formData, { // {id}
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },

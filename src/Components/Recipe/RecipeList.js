@@ -22,6 +22,7 @@ const RecipeList = () => {
                     <li key={recipes.id}>
                         <h2>{recipes.title}</h2>
                         <p>{"Ingredients : " + recipes.ingredients}</p>
+                        <img src=''></img>
                     </li>
                 ))}
             </ul>
