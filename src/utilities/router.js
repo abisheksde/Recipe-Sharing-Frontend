@@ -21,7 +21,6 @@ const router = createBrowserRouter([
     { path: 'recipecreation', element: <RecipeCreationPage/> },
     { path: 'recipeupdate', element: <RecipeUpdatePage/> },
     { path: 'userlist', element: <UsersList/> },
-    
     { path: 'admin/recipelist', element: <RecipeListForAdmin/>},
     { path: 'admin', element: <AdminDashboard/> },
 ]);
