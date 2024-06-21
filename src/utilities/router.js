@@ -27,11 +27,6 @@ const router = createBrowserRouter([
     
     { path: 'admin/recipelist', element: <RecipeListForAdmin/>},
     { path: 'admin', element: <AdminDashboard/> },
-
-    
-    
-    
-    
 ]);
 
 export default router;
