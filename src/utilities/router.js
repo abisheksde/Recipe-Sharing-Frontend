@@ -1,6 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
 import RegistrationPage from "../Components/RegistrationPage/RegistrationPage";
-import App from "../App";
 import UserProfileUpdate from "../Components/UserProfile/UserProfileUpdate";
 import UserAccountPage from "../Components/UserProfile/AccountManagement/js/UserAccountPage";
 import RecipeCreationPage from "../Components/Recipe/RecipeCreationPage";
@@ -10,8 +9,6 @@ import RecipeUpdatePage from "../Components/Recipe/RecipeUpdatePage";
 import UsersList from "../Components/UsersList";
 import AdminDashboard from "../Components/Admin/AdminDashboard";
 import RecipeListForAdmin from "../Components/Admin/RecipeListForAdmin";
-import RecipeList from "../Components/Recipe/RecipeList";
-import UserPosts from "../Components/UserProfile/AccountManagement/js/UserPosts";
 
 
 const router = createBrowserRouter([
